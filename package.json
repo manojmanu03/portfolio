@@ -13,8 +13,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:render": "NODE_OPTIONS=--max_old_space_size=1024 GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": ">=18 <21"
   },
   "eslintConfig": {
     "extends": [

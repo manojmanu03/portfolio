@@ -1,0 +1,19 @@
+services:
+  - type: static
+    name: portfolio
+    env: static
+    buildCommand: npm ci && npm run build:render
+    staticPublishPath: build
+    # Set Node version used during build
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: NODE_OPTIONS
+        value: --max_old_space_size=1024
+    # Add your own EmailJS keys in the Render dashboard, not here
+    # - key: REACT_APP_EMAILJS_SERVICE_ID
+    #   sync: false
+    # - key: REACT_APP_EMAILJS_TEMPLATE_ID
+    #   sync: false
+    # - key: REACT_APP_EMAILJS_PUBLIC_KEY
+    #   sync: false
