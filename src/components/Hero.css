@@ -6,6 +6,8 @@
   background: linear-gradient(135deg, var(--bg-primary) 0%, #e9dfd9 100%);
   position: relative;
   overflow: hidden;
+  /* Space below fixed header on larger screens */
+  padding-top: 80px;
 }
 
 /* Make the inner container fill the hero height and center content vertically */
