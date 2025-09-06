@@ -1,0 +1,217 @@
+.hero {
+  /* Use small viewport height for better mobile compatibility */
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #e9dfd9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make the inner container fill the hero height and center content vertically */
+.hero .container {
+  min-height: inherit;
+  display: grid;
+  align-items: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23595959" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.1;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  align-content: center; /* center rows within available height */
+  min-height: inherit;   /* fill hero height for proper centering */
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure the text column itself is vertically centered within its grid cell */
+.hero-text {
+  align-self: center;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.gradient-text {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(50, 50, 50, 0.08);
+  border-radius: 50%;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-links a:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-avatar {
+  width: clamp(220px, 28vw, 400px);
+  height: clamp(220px, 28vw, 400px);
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--divider);
+  box-shadow: 0 20px 60px rgba(50, 50, 50, 0.15);
+}
+
+.image-placeholder {
+  width: clamp(220px, 28vw, 400px);
+  height: clamp(220px, 28vw, 400px);
+  background: var(--bg-elevated);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--divider);
+}
+
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-element {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+  top: 60%;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+  bottom: 20%;
+  left: 50%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    /* Add safe top space below fixed header */
+    padding-top: calc(96px + env(safe-area-inset-top));
+    padding-bottom: 24px;
+    min-height: auto; /* let content define height on small screens */
+  }
+  .hero .container {
+    min-height: auto; /* inherit not needed on mobile */
+  }
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+    align-items: start; /* start below header */
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    margin-top: 0; /* avoid extra push under fixed header */
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-placeholder,
+  .hero-avatar {
+    width: clamp(200px, 60vw, 320px);
+    height: clamp(200px, 60vw, 320px);
+  }
+}
+
+/* Laptop breakpoint refinements */
+@media (max-width: 1200px) {
+  .hero-title {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+  }
+  .hero-content {
+    gap: clamp(1.25rem, 3vw, 3rem);
+  }
+}
