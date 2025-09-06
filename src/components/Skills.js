@@ -70,9 +70,9 @@ const Skills = () => {
               viewport={{ once: true }}
             >
               <h3>{category.title}</h3>
-              <div className="skills-list">
+              <ul className="skills-list">
                 {category.skills.map((skill, skillIndex) => (
-                  <motion.div 
+                  <motion.li
                     key={skill.name}
                     className="skill-item"
                     initial={{ opacity: 0, x: -30 }}
@@ -81,14 +81,14 @@ const Skills = () => {
                     viewport={{ once: true }}
                   >
                     <div className="skill-info">
-                      <div className="skill-icon">
+                      <span className="skill-icon">
                         {skill.icon}
-                      </div>
+                      </span>
                       <span className="skill-name">{skill.name}</span>
                     </div>
-                  </motion.div>
+                  </motion.li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           ))}
         </div>

@@ -42,19 +42,30 @@
   display: grid; /* compact grid list */
   grid-template-columns: 1fr;
   gap: 0.5rem; /* tighter */
+  justify-items: start; /* align rows left */
+  list-style: none;     /* no bullets */
+  padding-left: 3.3rem; /* subtle left padding */
+  margin-left: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .skill-item {
   background: transparent; /* simpler */
-  padding: 0.5rem 0.25rem; /* tighter */
+  padding: 0.5rem 0.25rem 0.5rem 0.4rem; /* add small left pad */
   border-radius: 8px;
   border: none;
+  text-align: left; /* left align for straight line */
+  box-sizing: border-box; /* avoid overflow */
+  max-width: 100%;
 }
 
 .skill-info {
-  display: flex;
+  display: grid; /* align icon and text in columns */
+  grid-template-columns: 20px auto; /* fixed icon col + flexible label */
+  column-gap: 0.4rem; /* tight spacing */
   align-items: center;
-  gap: 0.5rem; /* tighter */
+  justify-content: start;
   margin-bottom: 0;
 }
 
@@ -62,10 +73,14 @@
   font-size: 1.25rem; /* smaller icons */
   color: var(--accent);
   min-width: 20px;
+  width: 20px;          /* match grid column */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .skill-name {
-  flex: 1;
+  flex: 0; /* don't stretch label; keep it next to icon */
   color: var(--text-primary);
   font-weight: 500;
 }

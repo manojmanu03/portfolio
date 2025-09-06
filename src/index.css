@@ -24,10 +24,14 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent stray horizontal scroll */
 }
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent stray horizontal scroll */
 }
 
 code {

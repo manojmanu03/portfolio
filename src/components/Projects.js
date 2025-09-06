@@ -28,25 +28,25 @@ const Projects = () => {
       id: 2,
       title: 'HomeX – Real Estate Management System',
       description:
-        'Web-based real estate management system with role-based authentication for property owners and buyers. Implemented advanced property filtering and search, responsive Bootstrap frontend, and MySQL-backed secure data storage for seamless interactions between stakeholders.',
+        'Web-based real estate management system with role-based authentication for property owners and buyers. Implemented advanced property filtering and search, responsive Bootstrap frontend, and MongoDB-backed secure data storage for seamless interactions between stakeholders.',
       image: '/homex.png',
       technologies: [
         { name: 'HTML5', icon: <FaHtml5 /> },
         { name: 'CSS3', icon: <FaCss3Alt /> },
         { name: 'JavaScript', icon: <FaJs /> },
         { name: 'PHP', icon: <SiPhp /> },
-        { name: 'MySQL', icon: <SiMysql /> },
+        { name: 'MongoDB', icon: <SiMongodb /> },
         { name: 'Bootstrap', icon: <SiBootstrap /> }
       ],
       github: 'https://github.com/manojmanu03/HomeX',
-      live: 'https://github.com/manojmanu03/HomeX',
+      live: '#',
       featured: true
     },
     {
       id: 1,
       title: 'CampusFit – Placement Readiness Predictor',
       description:
-        'ML-powered web app to evaluate students’ placement readiness based on academic performance and skill metrics. Integrated classification models (~85% accuracy) to predict outcomes and provide personalized improvement suggestions. Flask-based backend with MySQL integration for efficient data storage and retrieval. Built a responsive frontend using HTML, CSS, and JavaScript.',
+        'ML-powered web app to evaluate students’ placement readiness based on academic performance and skill metrics. Integrated classification models (~85% accuracy) to predict outcomes and provide personalized improvement suggestions. Flask-based backend with MongoDB integration for efficient data storage and retrieval. Built a responsive frontend using HTML, CSS, and JavaScript.',
       image: '/campusfit.png',
       technologies: [
         { name: 'Python', icon: <FaPython /> },
@@ -57,7 +57,7 @@ const Projects = () => {
         { name: 'JavaScript', icon: <FaJs /> }
       ],
       github: 'https://github.com/manojmanu03/CampusFit',
-      live: 'https://github.com/manojmanu03/CampusFit',
+      live: 'https://campusfit-main.onrender.com/',
       featured: true
     },
     {
@@ -76,7 +76,7 @@ const Projects = () => {
         { name: 'Bootstrap', icon: <SiBootstrap /> }
       ],
       github: 'https://github.com/manojmanu03/Phishing_URL_detector',
-      live: 'https://github.com/manojmanu03/Phishing_URL_detector',
+      live: 'https://urlshield-main.onrender.com/',
       featured: true
     },
     {

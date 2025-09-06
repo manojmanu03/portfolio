@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { FiHome, FiUser, FiLayers, FiFolder, FiMail } from 'react-icons/fi';
 import './Header.css';
 
 const Header = () => {
@@ -16,11 +17,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '#home', icon: <FiHome /> },
+    { name: 'About', href: '#about', icon: <FiUser /> },
+    { name: 'Skills', href: '#skills', icon: <FiLayers /> },
+    { name: 'Projects', href: '#projects', icon: <FiFolder /> },
+    { name: 'Contact', href: '#contact', icon: <FiMail /> }
   ];
 
   return (
@@ -33,7 +34,9 @@ const Header = () => {
       <div className="container">
         <div className="nav-content">
           <div className="logo">
-            <a href="#home">Portfolio</a>
+            <a href="#home" className="brand" aria-label="Go to home">
+              <span className="brand-name">Manoj T B</span>
+            </a>
           </div>
           
           <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
@@ -47,7 +50,8 @@ const Header = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item.name}
+                <span className="nav-icon" aria-hidden="true">{item.icon}</span>
+                <span className="nav-label">{item.name}</span>
               </motion.a>
             ))}
           </nav>
