@@ -57,7 +57,7 @@ const Projects = () => {
         { name: 'JavaScript', icon: <FaJs /> }
       ],
       github: 'https://github.com/manojmanu03/CampusFit',
-      live: 'https://campusfit-main.onrender.com/',
+      live: 'https://campusfit-03.onrender.com/'
       featured: true
     },
     {
