@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -16,6 +18,8 @@
     "build": "react-scripts build",
     "build:render": "NODE_OPTIONS=--max_old_space_size=1024 GENERATE_SOURCEMAP=false react-scripts build",
     "start:web": "serve -s build -l $PORT",
+    "start:server": "node server.js",
+    "dev": "concurrently \"npm start\" \"npm run start:server\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

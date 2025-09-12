@@ -1,0 +1,37 @@
+name: Portfolio Uptime Monitor
+
+on:
+  schedule:
+    # Runs every 14 minutes (just before Render's 15-minute timeout)
+    - cron: '*/14 * * * *'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Monitor Portfolio Site
+      run: |
+        echo "🔍 Monitoring portfolio site..."
+        # Replace with your actual Render portfolio URL
+        SITE_URL="https://portfolio-YOUR-APP-NAME.onrender.com"
+        
+        # Perform health check
+        response=$(curl -s -o /dev/null -w "%{http_code}" $SITE_URL)
+        
+        if [ $response -eq 200 ]; then
+          echo "✅ Portfolio is accessible (HTTP $response)"
+        else
+          echo "⚠️ Portfolio returned HTTP $response"
+        fi
+        
+        echo "Monitor completed at $(date)"
+        
+    - name: Keep Backend Awake (if you have one)
+      run: |
+        echo "🚀 Pinging backend services..."
+        # Add your backend API URL here if you have one
+        # BACKEND_URL="https://your-backend-api.onrender.com"
+        # curl -f $BACKEND_URL/health || echo "Backend ping failed"
+        echo "Backend monitoring completed"
